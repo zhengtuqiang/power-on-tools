@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">电来了</string>
+    <string name="phone_et_hint">请输入要通知的手机号码</string>
+    <string name="confirm_btn_text">确定</string>
 </resources>

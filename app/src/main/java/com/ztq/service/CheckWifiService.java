@@ -14,10 +14,14 @@ import java.util.concurrent.TimeUnit;
 public class CheckWifiService extends Service {
     private Context mContext;
     private CheckWifiThread mCheckWifiThread;
-    private ScheduledExecutorService mExecutorService;
+    private static ScheduledExecutorService mExecutorService;
 
     public CheckWifiService() {
 
+    }
+
+    public static void shutDownExecutor() {
+        mExecutorService.shutdown();
     }
 
     @Override
