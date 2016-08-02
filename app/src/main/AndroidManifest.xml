@@ -24,6 +24,15 @@
             android:enabled="true"
             android:exported="true">
         </service>
+
+        <receiver
+            android:name="com.ztq.receiver.SendSMSReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ztq.action.wifiisconnected"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

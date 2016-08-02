@@ -1,10 +1,11 @@
 package com.ztq.task;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.Toast;
+
+import com.ztq.receiver.SendSMSReceiver;
 
 /**
  * 检查wifi是否连接的线程
@@ -21,19 +22,10 @@ public class CheckWifiThread extends Thread {
     public void run() {
         super.run();
         if (isWifiConnected()) {
-            ((Activity) mContext).runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(mContext, "连接到wifi", Toast.LENGTH_SHORT).show();
-                }
-            });
+            Intent broadcastIntent = new Intent(mContext, SendSMSReceiver.class);
+            mContext.sendBroadcast(broadcastIntent);
         } else {
-            ((Activity) mContext).runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(mContext, "没有连接到wifi", Toast.LENGTH_SHORT).show();
-                }
-            });
+
         }
     }
 

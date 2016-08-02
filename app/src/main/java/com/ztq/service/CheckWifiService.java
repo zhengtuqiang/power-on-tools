@@ -17,14 +17,15 @@ public class CheckWifiService extends Service {
     private ScheduledExecutorService mExecutorService;
 
     public CheckWifiService() {
-        mContext = getApplicationContext();
-        mCheckWifiThread = new CheckWifiThread(mContext);
-        mExecutorService = new ScheduledThreadPoolExecutor(1);
+
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getBaseContext();
+        mCheckWifiThread = new CheckWifiThread(mContext);
+        mExecutorService = new ScheduledThreadPoolExecutor(1);
         mExecutorService.scheduleAtFixedRate(mCheckWifiThread, 0, 5, TimeUnit.SECONDS);
     }
 
