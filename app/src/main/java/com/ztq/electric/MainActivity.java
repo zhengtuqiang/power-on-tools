@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSf = getSharedPreferences(Constants.GLOBAL_SF_NAME, MODE_PRIVATE);
-
         confirmBtn = (Button) this.findViewById(R.id.confirm_btn);
         phoneEt = (EditText) this.findViewById(R.id.phone_et);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
